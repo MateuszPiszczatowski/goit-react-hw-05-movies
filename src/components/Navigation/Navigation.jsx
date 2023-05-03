@@ -1,15 +1,16 @@
 import { nanoid } from "nanoid";
 import StyledNavLink from "../StyledNavLink/StyledNavLink";
+import css from "./Navigation.module.css";
 
 const Navigation = ({ pagesDict }) => {
   return (
-    <ul>
+    <nav className={css.Navigation}>
       {Object.keys(pagesDict).map((page) => (
-        <li key={nanoid()}>
-          <StyledNavLink to={pagesDict[page]}>{page}</StyledNavLink>
-        </li>
+        <StyledNavLink key={nanoid()} to={pagesDict[page]}>
+          {page}
+        </StyledNavLink>
       ))}
-    </ul>
+    </nav>
   );
 };
 

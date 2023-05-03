@@ -1,0 +1,8 @@
+.Movies {
+  padding: 0.5rem 0 0 0.5rem;
+}
+
+.MoviesForm {
+  display: flex;
+  gap: 0.25rem;
+}

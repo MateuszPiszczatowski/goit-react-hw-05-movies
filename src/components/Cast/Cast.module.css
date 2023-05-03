@@ -1,0 +1,13 @@
+.Cast {
+  list-style-type: none;
+  padding: 0.5rem 0 0 0.5rem;
+}
+.Caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 0 0.2rem 0;
+}
+.Photo {
+  max-width: 20vw;
+}

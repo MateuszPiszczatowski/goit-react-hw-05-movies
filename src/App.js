@@ -8,10 +8,10 @@ function App() {
     movies: "/movies",
   };
   return (
-    <>
+    <div className="App">
       <Navigation pagesDict={pages} />
-      <RoutesComponent />;
-    </>
+      <RoutesComponent />
+    </div>
   );
 }
 

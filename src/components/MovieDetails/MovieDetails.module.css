@@ -1,0 +1,42 @@
+.MovieDetails {
+  padding: 0.3rem 0 0;
+}
+.BackButton {
+  padding: 1px;
+  margin-left: 0.5rem;
+  font-size: 0.6rem;
+}
+.InfoSection {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.Poster {
+  max-width: 30vw;
+  height: auto;
+}
+
+.Details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.Genres {
+  display: flex;
+  gap: 0.3rem;
+  list-style-type: none;
+}
+
+.AdditionalInfoNav {
+  padding: 0.5rem 0;
+  border: 1px solid gray;
+}
+
+.AdditionalInfoNavList {
+  list-style-type: none;
+  padding: 0 0 0 0.3rem;
+}
+.LeftPadder {
+  padding-left: 0.5rem;
+}

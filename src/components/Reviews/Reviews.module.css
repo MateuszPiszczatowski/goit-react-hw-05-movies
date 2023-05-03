@@ -1,0 +1,12 @@
+.Reviews {
+  list-style-type: none;
+  padding: 0.5rem 0 0 0.5rem;
+}
+
+.Review:first-child {
+  margin-top: 0;
+}
+
+.Review {
+  margin-top: 0.5rem;
+}
