@@ -12,7 +12,6 @@ const MoviesList = ({ moviesData }) => {
     setState({ movies: undefined, message: "Loading..." });
     const load = async () => {
       const movies = await moviesData;
-      console.log(movies);
       if (movies) {
         if (movies.length > 0) {
           setState({ movies: movies, message: "" });
