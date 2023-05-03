@@ -67,10 +67,14 @@ const MovieDetails = () => {
             <p>Additional information</p>
             <ul className={css.AdditionalInfoNavList}>
               <li>
-                <Link to="cast">Cast</Link>
+                <Link to="cast" state={location.state}>
+                  Cast
+                </Link>
               </li>
               <li>
-                <Link to="reviews">Reviews</Link>
+                <Link to="reviews" state={location.state}>
+                  Reviews
+                </Link>
               </li>
             </ul>
           </div>
