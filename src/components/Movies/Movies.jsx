@@ -8,7 +8,8 @@ const Movies = () => {
   const querry = searchParams.get("querry");
   const onSearchSubmit = (evt) => {
     evt.preventDefault();
-    setSearchParams({ querry: evt.target.elements["querryInput"].value });
+    const newQuerry = evt.target.elements["querryInput"].value;
+    if (querry !== newQuerry) setSearchParams({ querry: newQuerry });
   };
 
   return (
