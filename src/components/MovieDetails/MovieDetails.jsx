@@ -50,7 +50,7 @@ const MovieDetails = () => {
         />
         <div className={css.Details}>
           <h2>{`${movieData.title} (${movieData.release_date})`}</h2>
-          <p>User score: {movieData.popularity * 100}%</p>
+          <p>User score: {movieData.vote_average * 100}%</p>
           <h3>Overview</h3>
           <p>{movieData.overview}</p>
           <h3>Genres</h3>
