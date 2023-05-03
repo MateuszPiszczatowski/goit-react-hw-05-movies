@@ -5,7 +5,7 @@ import css from "./Movies.module.css";
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const querry = searchParams.get("querry") ?? "";
+  const querry = searchParams.get("querry");
   const onSearchSubmit = (evt) => {
     evt.preventDefault();
     setSearchParams({ querry: evt.target.elements["querryInput"].value });
@@ -17,7 +17,7 @@ const Movies = () => {
         <input type="text" name="querryInput" defaultValue={querry}></input>
         <input type="submit" name="submitInput" value="Search"></input>
       </form>
-      <MoviesList moviesData={getByTitle(querry)} />
+      {querry && <MoviesList moviesData={getByTitle(querry)} />}
     </section>
   );
 };

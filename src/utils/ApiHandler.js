@@ -1,47 +1,43 @@
-const API_KEY = "257d3002876fa504627cffb9f7223956";
+const API_KEY_LINK_PART = "?api_key=257d3002876fa504627cffb9f7223956";
+const LINK_BASE = "https://api.themoviedb.org/3/";
 
-export const getTrending = () => {
-  return [
-    { title: "title1", id: "id1" },
-    { title: "title2", id: "id2" },
-    { title: "title3", id: "id3" },
-  ];
-};
-
-export const getByTitle = (title) => {
-  const titles = [];
-  if (title !== "") {
-    for (let i = 0; i < 15; i++) {
-      titles.push({ title: `${title}${i + 1}`, id: i });
+const getRequest = async (link) => {
+  try {
+    const fetchResult = await fetch(link);
+    if (fetchResult.ok) {
+      const result = await fetchResult.json();
+      return result;
+    } else {
+      return false;
     }
+  } catch (error) {
+    return false;
   }
-  return titles;
 };
 
-export const getMovieDataById = (id) => {
-  return {
-    title: "Movie with id: " + id,
-    id: id,
-    imageLink: "",
-    score: 100,
-    year: 2000,
-    overview: "some overview: " + id,
-    genres: ["genre1", "genre2", "genre3"],
-  };
+export const getTrending = async () => {
+  const trendingMovies = await getRequest(`${LINK_BASE}trending/movie/day${API_KEY_LINK_PART}`);
+  return trendingMovies.results.filter((result) => !result.adult);
 };
 
-export const getMovieReviewsById = (id) => {
-  return [
-    { author: "author1", review: "review", score: 100 },
-    { author: "author2", review: "review", score: 100 },
-    { author: "author3", review: "review", score: 100 },
-  ];
+export const getByTitle = async (title) => {
+  const moviesByTitle = await getRequest(
+    `${LINK_BASE}/search/movie${API_KEY_LINK_PART}&query=${title}&include_adult=false`
+  );
+  return moviesByTitle.results;
 };
 
-export const getMovieCastById = (id) => {
-  return [
-    { name: "name1", photo: "src1", character: "role1" },
-    { name: "name2", photo: "src2", character: "role2" },
-    { name: "name3", photo: "src3", character: "role3" },
-  ];
+export const getMovieDataById = async (id) => {
+  const movieData = await getRequest(`${LINK_BASE}movie/${id}${API_KEY_LINK_PART}`);
+  return movieData;
+};
+
+export const getMovieReviewsById = async (id) => {
+  const movieReviews = await getRequest(`${LINK_BASE}movie/${id}/reviews${API_KEY_LINK_PART}`);
+  return movieReviews.results;
+};
+
+export const getMovieCastById = async (id) => {
+  const movieCast = await getRequest(`${LINK_BASE}movie/${id}/credits${API_KEY_LINK_PART}`);
+  return movieCast.cast;
 };

@@ -40,3 +40,15 @@
 .LeftPadder {
   padding-left: 0.5rem;
 }
+.NoDataMessagePositioner {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(119, 136, 153, 0.1);
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NoDataMessage {
+  text-align: center;
+}
