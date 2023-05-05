@@ -33,7 +33,8 @@ const Reviews = () => {
         {reviews.map((review) => {
           return (
             <li key={nanoid()} className={css.Review}>
-              <h4>Author: {review.author}</h4> <p>"{review.content}"</p>
+              <h4>Author: {review.author}</h4>{" "}
+              <p dangerouslySetInnerHTML={{ __html: review.content }} />
             </li>
           );
         })}
